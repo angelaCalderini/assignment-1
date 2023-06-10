@@ -21,11 +21,12 @@
                    class="form-control" ng-model="textInput">
                </div>
                <div class="form-group">
-                   <button class="btn btn-default" ng-model="buttonSubmit">Check If Too Much</button>
+                   <button class="btn btn-default"  ng-click="submit()">Check If Too Much</button>
                </div>
                <div class="form-group message">
-                 <textarea ng-model="resultText"/>
                  <!-- Your message can go here. -->
+                  <p ng-style="messageStyle">{{message}}</p>
+
                </div>
           </div>
     </div>

@@ -3,28 +3,27 @@
   angular.module("LunchCheck",[])
   .controller("LunchCheckController",LunchCheckController);
 
-  LunchCheckController.$inject=[$scope];
+  LunchCheckController.$inject=['$scope'];
   function LunchCheckController($scope)
     {
-
-        $scope.buttonSubmit = function(){
-          if($scope.textInput = ""){
-            $scope.resultText="Please enter data first";
-          }
-          else {
-            const sArray= $scope.textInput.split(",");
-            if(sArray.length<=3){
-              $scope.resultText="Enjoy!";
+        $scope.textInput = "";
+        $scope.message = "";
+        $scope.submit = function() {
+            if ($scope.textInput.length == 0) {
+              $scope.messageStyle = {"color":"red","border-color": "red"};
+                $scope.message = "Please enter data first";
             }
-            else if (rray.length>3) {
-              $scope.resultText=  "Too much!";
+            else {
+                var array = $scope.textInput.split(',');
+                $scope.messageStyle = {"color":"green","border-color":'green'};
+                if (array.length <= 3) {
+                    $scope.message = "Enjoy!";
+                } else {
+                    $scope.message = "Too much!";
+                }
             }
-          }
 
         };
-
-  }
-
-
+      }
   }
 )();
